@@ -24,8 +24,8 @@ var none = uuid.v4()
 
 var set = new Set(src)
 suite.add('set#has', function () {
-  assert.strictEqual(set.has(target), true)
-  assert.strictEqual(set.has(none), false)
+  assert.ok(set.has(target))
+  assert.ok(!set.has(none))
 })
 
 
@@ -34,16 +34,16 @@ var obj = src.reduce(function (memo, v) {
   return memo
 }, {})
 suite.add('object#literal', function () {
-  assert.strictEqual(obj[target], true)
-  assert.notStrictEqual(obj[none], true)
+  assert.ok(obj[target])
+  assert.ok(!obj[none])
 })
 // suite.add('object#in', function () {
-//   assert.strictEqual(target in obj, true)
-//   assert.strictEqual(none in obj, false)
+//   assert.ok(target in obj)
+//   assert.ok(!(none in obj))
 // })
 // suite.add('object#hasOwnProperty', function () {
-//   assert.strictEqual(obj.hasOwnProperty(target), true)
-//   assert.strictEqual(obj.hasOwnProperty(none), false)
+//   assert.ok(obj.hasOwnProperty(target))
+//   assert.ok(!obj.hasOwnProperty(none))
 // })
 
 
@@ -51,22 +51,22 @@ suite.add('object#literal', function () {
 //   return [key, true]
 // }))
 // suite.add('map#has', function () {
-//   assert.strictEqual(map.has(target), true)
-//   assert.strictEqual(map.has(none), false)
+//   assert.ok(map.has(target))
+//   assert.ok(!map.has(none))
 // })
 
 
 // var str =  src.join('\n')
 // suite.add('str#indexOf', function () {
-//   assert.strictEqual(str.indexOf(target) !== -1, true)
-//   assert.strictEqual(str.indexOf(none) !== -1, false)
+//   assert.ok(str.indexOf(target) !== -1)
+//   assert.ok(str.indexOf(none) === -1)
 // })
 
 
 // var iffn = new Function("target", "return '" + src.join("' === target || '") + "' === target")
 // suite.add('if#literal', function () {
-//   assert.strictEqual(iffn(target), true)
-//   assert.strictEqual(iffn(none), false)
+//   assert.ok(iffn(target))
+//   assert.ok(!iffn(none))
 // })
 
 

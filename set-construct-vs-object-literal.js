@@ -19,7 +19,7 @@ var none = uuid.v4()
 var prevSet = null
 suite.add('set#construct', function () {
   var set = new Set(src)
-  assert.strictEqual(set !== prevSet, true)
+  assert.notStrictEqual(set, prevSet)
   prevSet = set
 })
 
@@ -32,7 +32,7 @@ var getObj = new Function("return " + JSON.stringify(obj))
 var prevObj = null
 suite.add('object#literal', function () {
   var obj = getObj()
-  assert.strictEqual(obj !== prevObj, true)
+  assert.notStrictEqual(obj, prevObj)
   prevObj = obj
 })
 
